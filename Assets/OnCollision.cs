@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class OnCollision : MonoBehaviour
 {
@@ -20,7 +19,6 @@ public class OnCollision : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("fhaoweh");
         if (collision.gameObject.layer == 3)
         {
             logic.setScore(1);

@@ -407,6 +407,7 @@ MonoBehaviour:
   pipe: {fileID: 5050445614815862243, guid: 0933aeaae5fdb1648b4a75d8d00d4da3, type: 3}
   spawnRate: 2
   offsetHeight: 1
+  logic: {fileID: 0}
 --- !u!4 &589934600
 Transform:
   m_ObjectHideFlags: 0
@@ -531,6 +532,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 2035446700}
+  GameOverObject: {fileID: 186854381}
+  isGameOn: 1
 --- !u!4 &1029276397
 Transform:
   m_ObjectHideFlags: 0
@@ -978,6 +981,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myRigidbody: {fileID: 1758683624}
   flyStrength: 5
+  logic: {fileID: 0}
 --- !u!58 &1758683628
 CircleCollider2D:
   m_ObjectHideFlags: 0

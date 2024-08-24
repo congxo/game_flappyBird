@@ -8,6 +8,8 @@ public class ScoreLogic : MonoBehaviour
     public Text scoreText;
     int score = 0;
     string defaultText;
+    public GameObject GameOverObject;
+    public bool isGameOn = true;
     void Start()
     {
         if (scoreText != null)
@@ -28,8 +30,11 @@ public class ScoreLogic : MonoBehaviour
             scoreText.text = defaultText + " " + score.ToString();
         }
     }
-    
     public void restartGame(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    public void gameOver(){
+        GameOverObject.SetActive(true);
+        isGameOn = false;
     }
 }

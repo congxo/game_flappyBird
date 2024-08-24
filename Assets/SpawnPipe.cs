@@ -7,34 +7,39 @@ public class SpawnPipe : MonoBehaviour
     public float spawnRate = 2;
     private float time = 0;
     public float offsetHeight = 1;
-
+    public ScoreLogic logic;
     void Start()
     {
         spawnPipe(pipe);
+        logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<ScoreLogic>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (time < spawnRate)
+        if (logic.isGameOn)
         {
-            time += Time.deltaTime;
+            if (time < spawnRate)
+            {
+                time += Time.deltaTime;
+            }
+            else
+            {
+                spawnPipe(pipe);
+                time = 0;
+            }
         }
-        else
-        {
-            spawnPipe(pipe);
-            time = 0;
-        }
+
     }
-   void spawnPipe(GameObject gameObject)
-{
-    float highest = transform.position.y + offsetHeight;
-    float lowest = transform.position.y - offsetHeight;
-    float randomY = Random.Range(lowest, highest);
+    void spawnPipe(GameObject gameObject)
+    {
+        float highest = transform.position.y + offsetHeight;
+        float lowest = transform.position.y - offsetHeight;
+        float randomY = Random.Range(lowest, highest);
 
-    Vector3 spawPosition = new Vector3(transform.position.x, randomY, 0);
+        Vector3 spawPosition = new Vector3(transform.position.x, randomY, 0);
 
-    Instantiate(gameObject, spawPosition, transform.rotation);
-}
+        Instantiate(gameObject, spawPosition, transform.rotation);
+    }
 
 }
